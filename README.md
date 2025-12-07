@@ -1,22 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a [Next.js](https://nextjs.org) monorepo using [Bun](https://bun.sh) as the package manager and [Redis](https://redis.io) for caching.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- [Bun](https://bun.sh/docs/installation) installed
+- Redis server running (or Redis URL configured)
+
+### Installation
+
+Install dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
+bun install
+```
+
+### Redis Configuration
+
+The project uses `ioredis` (a Node.js Redis client) for Next.js caching. Configure Redis by setting one of these environment variables:
+
+- `REDIS_URL` (preferred)
+- `VALKEY_URL`
+- Defaults to `redis://localhost:6379` if neither is set
+
+Example `.env.local` in `apps/web/`:
+
+```bash
+REDIS_URL=redis://localhost:6379
+# For TLS connections:
+# REDIS_URL=rediss://localhost:6379
+# For authenticated connections:
+# REDIS_URL=redis://username:password@localhost:6379
+```
+
+### Development
+
+Run the development server:
+
+```bash
 bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You can start editing the page by modifying `apps/web/src/app/page.tsx`. The page auto-updates as you edit the file.
+
+## Features
+
+- **Bun**: Fast package manager and runtime
+- **Redis Caching**: Custom cache handler using ioredis (Node.js Redis client)
+- **Turbo**: Monorepo build system
+- **Next.js**: React framework with App Router
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 

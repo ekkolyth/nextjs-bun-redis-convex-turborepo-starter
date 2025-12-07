@@ -2,7 +2,10 @@
   "name": "ekko-recipe",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@10.15.1",
+  "packageManager": "bun@1.1.0",
+  "workspaces": [
+    "apps/*"
+  ],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev convex:dev --parallel",
