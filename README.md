@@ -27,8 +27,8 @@ REDIS_URL=redis://localhost:6379
 
 ```bash
 make dev           # Start Redis and dev server
-make redis-up      # Start Redis
-make redis-down    # Stop Redis
-make redis-status  # Check Redis status
-make clean-next    # Clear Next.js cache
+make redis/up      # Start Redis
+make redis/down    # Stop Redis
+make redis/status  # Check Redis status
+make clean/next    # Clear Next.js cache
 ```
